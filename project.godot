@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "SpaceshipModule",
+"class": "Gun",
+"language": "GDScript",
+"path": "res://SpaceshipModule/Gun/Gun.gd"
+}, {
 "base": "Node2D",
 "class": "SpaceshipModule",
 "language": "GDScript",
 "path": "res://SpaceshipModule/SpaceshipModule.gd"
 } ]
 _global_script_class_icons={
+"Gun": "",
 "SpaceshipModule": ""
 }
 

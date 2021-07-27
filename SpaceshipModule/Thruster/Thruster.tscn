@@ -10,8 +10,8 @@ extents = Vector2( 30, 30 )
 extents = Vector2( 30, 30 )
 
 [sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( 0.00328947, 0.993421 )
-colors = PoolColorArray( 0.627451, 0.627451, 0.627451, 1, 1, 1, 1, 0 )
+offsets = PoolRealArray( 0.00357782, 0.989267 )
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0.948864, 0.181818, 0 )
 
 [node name="Thruster" type="CollisionShape2D"]
 z_index = 1
@@ -45,7 +45,6 @@ angle_random = 1.0
 scale_amount = 44.01
 scale_amount_random = 0.71
 color_ramp = SubResource( 3 )
-hue_variation = 0.1
-hue_variation_random = 1.0
+hue_variation_random = 0.53
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

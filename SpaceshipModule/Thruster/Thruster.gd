@@ -19,6 +19,12 @@ func _physics_process(delta):
 
 	else:
 		$CPUParticles2D.emitting = false
+
+func _process(delta):
+	if checkingForInput:
+		modulate = Color.red
+	else:
+		modulate = Color.white
 func _unhandled_key_input(event):
 	if checkingForInput:
 		InputMap.action_erase_events("Thruster" + String(get_instance_id()))
