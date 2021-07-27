@@ -31,5 +31,5 @@ func _unhandled_key_input(event):
 func fire():
 	var bulletInstance = bulletScene.instance()
 	bulletInstance.global_transform = global_transform
-	bulletInstance.direction = global_rotation + PI/2
+	bulletInstance.direction = global_rotation - PI/2
 	get_tree().get_root().add_child(bulletInstance)

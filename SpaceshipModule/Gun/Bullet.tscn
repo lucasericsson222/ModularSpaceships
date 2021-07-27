@@ -7,6 +7,8 @@
 extents = Vector2( 1.95255, 4.25665 )
 
 [node name="Bullet" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -15,3 +17,9 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 2 )
 texture = ExtResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0.113258, 0.0566297 )
+scale = Vector2( 0.212859, 0.422385 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
