@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://SpaceshipModule/Thruster/Thruster.gd" type="Script" id=1]
 [ext_resource path="res://SpaceshipModule/Thruster/Sprites/thruster.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 30, 30 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.00328947, 0.993421 )
+colors = PoolColorArray( 0.627451, 0.627451, 0.627451, 1, 1, 1, 1, 0 )
 
 [node name="Thruster" type="CollisionShape2D"]
 z_index = 1
@@ -17,3 +24,28 @@ texture = ExtResource( 2 )
 
 [node name="ThrustPosition" type="Position2D" parent="."]
 position = Vector2( 0, 30 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 0.411682, 30.259 )
+rotation = 1.41895
+amount = 40
+lifetime = 2.0
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1 )
+spread = 21.77
+gravity = Vector2( 0, 0 )
+initial_velocity = 75.27
+angle = 356.1
+angle_random = 1.0
+scale_amount = 44.01
+scale_amount_random = 0.71
+color_ramp = SubResource( 3 )
+hue_variation = 0.1
+hue_variation_random = 1.0
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

@@ -15,8 +15,16 @@ script = ExtResource( 1 )
 position = Vector2( 0, 60 )
 
 [node name="Thruster2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -60, 0 )
+rotation = 1.5708
+
+[node name="Thruster3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 60, 0 )
-rotation = 4.71239
+rotation = -1.5708
+
+[node name="Thruster4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -60 )
+rotation = 3.14159
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
