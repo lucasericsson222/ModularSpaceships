@@ -8,7 +8,7 @@ func _ready():
 	InputMap.add_action("Thruster" + String(get_instance_id()))
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	if Input.is_action_pressed("Thruster" + String(get_instance_id())):
 		$CPUParticles2D.emitting = true
@@ -20,7 +20,7 @@ func _physics_process(delta):
 	else:
 		$CPUParticles2D.emitting = false
 
-func _process(delta):
+func _process(_delta):
 	if checkingForInput:
 		modulate = Color.red
 	else:
@@ -33,12 +33,12 @@ func _unhandled_key_input(event):
 		print(InputMap.get_actions())
 		checkingForInput = false
 
-func _on_Area2D_input_event(viewport, event, shape_idx):
+func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
 	and event.is_pressed():
 		self.on_click()
 		
 func on_click():
-	checkingForInput = true
+	checkingForInput = !checkingForInput
 

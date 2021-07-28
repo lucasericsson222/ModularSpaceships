@@ -2,7 +2,6 @@ extends SpaceshipModule
 
 class_name Gun
 
-
 var gunDamage = 10
 onready var bulletScene = preload("./Bullet.tscn")
 var checkingForInput = false
@@ -11,7 +10,7 @@ var checkingForInput = false
 func _ready():
 	InputMap.add_action("Gun" + String(get_instance_id()))
 
-func _process(delta):
+func _process(_delta):
 	if (Input.is_action_pressed("Gun" + String(get_instance_id()))):
 		fire()
 	if checkingForInput:
@@ -32,4 +31,7 @@ func fire():
 	var bulletInstance = bulletScene.instance()
 	bulletInstance.global_transform = global_transform
 	bulletInstance.direction = global_rotation - PI/2
+	bulletInstance.launcherVelocity = get_parent().linear_velocity
 	get_tree().get_root().add_child(bulletInstance)
+
+

@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://SpaceshipModule/Gun/Sprites/bullet.png" type="Texture" id=1]
+[ext_resource path="res://SpaceshipModule/Gun/Sprites/bulletBigger.png" type="Texture" id=1]
 [ext_resource path="res://SpaceshipModule/Gun/Bullet.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1.95255, 4.25665 )
+extents = Vector2( 6.92387, 16.7831 )
 
 [node name="Bullet" type="KinematicBody2D"]
 collision_layer = 4

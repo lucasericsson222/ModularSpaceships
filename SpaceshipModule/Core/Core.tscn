@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://SpaceshipModule/Core/Core.gd" type="Script" id=1]
 [ext_resource path="res://SpaceshipModule/Core/Sprites/core.png" type="Texture" id=2]
 [ext_resource path="res://SpaceshipModule/Thruster/Thruster.tscn" type="PackedScene" id=3]
 [ext_resource path="res://SpaceshipModule/Gun/StationaryGun/StationaryGun.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SpaceshipModule/Gun/TurningTurret/TurningTurret.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
@@ -38,3 +39,9 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, 60 )
 rotation = 3.14159
+
+[node name="CollisionShape2D3" parent="." instance=ExtResource( 5 )]
+position = Vector2( -60, 0 )
+
+[node name="CollisionShape2D4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 60, 0 )
