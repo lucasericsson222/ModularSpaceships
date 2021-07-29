@@ -7,13 +7,15 @@ var launcherVelocity = Vector2(0,0)
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
+func _physics_process(delta):
 	rotation = direction + PI/2
 	var collision = move_and_collide(delta * (Vector2(cos(direction) * speed, sin(direction) * speed) + launcherVelocity ), false)
 	if collision:
 		if collision.collider_shape.has_method("applyDamage"):
 			collision.collider_shape.applyDamage()
 		queue_free()
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

@@ -15,7 +15,8 @@ func _ready():
 		if m.has_method("setHealth"):
 			m.setHealth(2.0)
 			m.setTotalHealth(2.0)
-		m.modulate = Color.mediumorchid
+			m.defaultModulate = Color.mediumorchid
+			m.currentModulate = Color.mediumorchid
 
 
 
