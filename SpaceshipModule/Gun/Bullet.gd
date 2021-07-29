@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var direction = PI/2
-var speed = 300
+var speed = 2000
 var launcherVelocity = Vector2(0,0)
 # Called when the node enters the scene tree for the first time.
 func _ready():

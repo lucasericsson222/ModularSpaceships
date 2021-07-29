@@ -16,7 +16,8 @@ func _process(_delta):
 	if checkingForInput:
 		modulate = Color.red
 	else:
-		modulate = Color.white
+		if !get_parent().is_in_group("Evil"):
+			modulate = Color.white
 
 func _unhandled_key_input(event):
 	if checkingForInput:
