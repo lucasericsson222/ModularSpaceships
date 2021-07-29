@@ -14,7 +14,7 @@ func _process(delta):
 	._process(delta)
 	var turretDirection = get_angle_to(get_global_mouse_position()) + PI/2
 	if !get_parent().is_in_group("Evil"):
-		$turningTurretHead.rotation = turretDirection
+		$Sprite/turningTurretHead.rotation = turretDirection
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -23,7 +23,7 @@ func fire() -> void:
 		return
 	var bulletInstance = bulletScene.instance()
 	bulletInstance.global_transform = global_transform
-	bulletInstance.direction = $turningTurretHead.global_rotation - PI/2
+	bulletInstance.direction = $Sprite/turningTurretHead.global_rotation - PI/2
 	bulletInstance.launcherVelocity = get_parent().linear_velocity
 	setBulletAlignment(bulletInstance)
 	get_tree().get_root().add_child(bulletInstance)

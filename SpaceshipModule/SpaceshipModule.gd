@@ -29,10 +29,10 @@ func _ready():
 
 func selectedColor():
 	if checkingForInput:
-		modulate = Color.blue
+		$Sprite.modulate = Color.blue
 	else:
 		if !get_parent().is_in_group("Evil"):
-			modulate = defaultModulate
+			$Sprite.modulate = defaultModulate
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
