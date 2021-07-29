@@ -7,10 +7,13 @@ class_name SpaceshipModule
 # var a = 2
 # var b = "text"
 
-export var health: float
+export var health := 10.0
 
 
-
+func applyDamage():
+	health -= 5
+	if health <= 0:
+		queue_free()
 
 
 # Called when the node enters the scene tree for the first time.

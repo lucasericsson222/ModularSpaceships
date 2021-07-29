@@ -8,9 +8,13 @@ extends RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	collision_layer = 0b0000000000000110
+	collision_mask = 0b00000000000000110
 	var modules = get_children()
 	for m in modules:
 		m.modulate = Color.mediumorchid
+
+
 
 
 func _process(delta):

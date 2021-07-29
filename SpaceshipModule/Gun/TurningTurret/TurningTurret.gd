@@ -25,6 +25,7 @@ func fire() -> void:
 	bulletInstance.global_transform = global_transform
 	bulletInstance.direction = $turningTurretHead.global_rotation - PI/2
 	bulletInstance.launcherVelocity = get_parent().linear_velocity
+	setBulletAlignment(bulletInstance)
 	get_tree().get_root().add_child(bulletInstance)
 	$fireTimer.start()
 

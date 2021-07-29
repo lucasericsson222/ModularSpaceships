@@ -9,8 +9,11 @@ func _ready():
 
 func _process(delta):
 	rotation = direction + PI/2
-	move_and_collide(delta * (Vector2(cos(direction) * speed, sin(direction) * speed) + launcherVelocity ))
-
+	var collision = move_and_collide(delta * (Vector2(cos(direction) * speed, sin(direction) * speed) + launcherVelocity ), false)
+	if collision:
+		if collision.collider_shape.has_method("applyDamage"):
+			collision.collider_shape.applyDamage()
+		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
