@@ -12,6 +12,9 @@ func _ready():
 	collision_mask = 0b00000000000000110
 	var modules = get_children()
 	for m in modules:
+		if m.has_method("setHealth"):
+			m.setHealth(2.0)
+			m.setTotalHealth(2.0)
 		m.modulate = Color.mediumorchid
 
 
@@ -23,6 +26,7 @@ func _process(delta):
 		if m.is_in_group("Thruster"):
 			controlThrusters(m)
 		if m.is_in_group("Gun"):
+			
 			Input.action_press("Gun" + String(m.get_instance_id()))
 			# fire if the player is in that direction
 			pass

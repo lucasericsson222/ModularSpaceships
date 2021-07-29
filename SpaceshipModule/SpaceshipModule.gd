@@ -7,19 +7,32 @@ class_name SpaceshipModule
 # var a = 2
 # var b = "text"
 
-export var health := 10.0
-
-
+export var totalHealth := 10.0
+export var health: float
+var checkingForInput = false
+var defaultModulate = Color.white
 func applyDamage():
-	health -= 5
+	health -= 1
+	defaultModulate = Color.white.darkened((totalHealth-health)/totalHealth)
 	if health <= 0:
 		queue_free()
+	
 
+func setHealth(h:float):
+	health = h
 
+func setTotalHealth(h:float)->void:
+	totalHealth = h
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	health = totalHealth
 
+func selectedColor():
+	if checkingForInput:
+		modulate = Color.blue
+	else:
+		if !get_parent().is_in_group("Evil"):
+			modulate = defaultModulate
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

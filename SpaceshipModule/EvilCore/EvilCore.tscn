@@ -11,7 +11,7 @@ extents = Vector2( 30, 30 )
 ]]
 script = ExtResource( 1 )
 
-[node name="EvilCore" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

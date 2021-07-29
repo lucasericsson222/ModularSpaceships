@@ -4,7 +4,7 @@ class_name Gun
 
 var gunDamage = 10
 onready var bulletScene = preload("./Bullet.tscn")
-var checkingForInput = false
+
 
 
 func _ready():
@@ -13,11 +13,12 @@ func _ready():
 func _process(_delta):
 	if (Input.is_action_pressed("Gun" + String(get_instance_id()))):
 		fire()
-	if checkingForInput:
-		modulate = Color.red
-	else:
-		if !get_parent().is_in_group("Evil"):
-			modulate = Color.white
+	selectedColor()
+
+
+
+
+
 
 func _unhandled_key_input(event):
 	if checkingForInput:

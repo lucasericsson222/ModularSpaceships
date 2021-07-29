@@ -1,7 +1,6 @@
 extends SpaceshipModule
 
 export var myposition = Vector2(0,0)
-var checkingForInput = false
 var thrustersOn = false
 export var impulse_strength = 2 # if need to increase thruster speed
 func _ready():
@@ -23,11 +22,7 @@ func _process(_delta):
 	clickColor()
 
 func clickColor():
-	if checkingForInput:
-		modulate = Color.red
-	else:
-		if !get_parent().is_in_group("Evil"):
-			modulate = Color.white
+	selectedColor()
 
 func _unhandled_key_input(event):
 	if checkingForInput:
