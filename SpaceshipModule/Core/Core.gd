@@ -1,10 +1,6 @@
 extends SpaceshipModule
 
  
-
-
-# this one will get input, all other modules will be children of it, 
-# whenever it gets input it will emit a signal, then thrusters or other things will use that input
 # all movement will be applied to the core
 # maybe i'll make it so that the individual thrusters get the input, but then the question
 # is how to apply the input: I could try using rigidbodies and creating a single rigid

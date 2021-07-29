@@ -13,7 +13,8 @@ func _ready():
 func _process(delta):
 	._process(delta)
 	var turretDirection = get_angle_to(get_global_mouse_position()) + PI/2
-	$turningTurretHead.rotation = turretDirection
+	if !get_parent().is_in_group("Evil"):
+		$turningTurretHead.rotation = turretDirection
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -35,5 +36,6 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 		self.on_click()
 		
 func on_click():
-	checkingForInput = !checkingForInput
+	if !get_parent().is_in_group("Evil"):
+		checkingForInput = !checkingForInput
 

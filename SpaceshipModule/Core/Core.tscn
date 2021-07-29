@@ -9,7 +9,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Core" type="RigidBody2D" groups=[
+"Player",
+]]
 gravity_scale = 0.0
 linear_damp = 0.0
 angular_damp = 0.0

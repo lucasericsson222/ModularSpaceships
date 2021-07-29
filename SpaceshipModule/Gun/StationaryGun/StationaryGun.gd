@@ -30,6 +30,7 @@ func _on_Area2D_input_event(_viewport, event, _shape_idx):
 		self.on_click()
 		
 func on_click():
-	checkingForInput = !checkingForInput
+	if !get_parent().is_in_group("Evil"):
+		checkingForInput = !checkingForInput
 
 

@@ -13,7 +13,9 @@ extents = Vector2( 30, 30 )
 offsets = PoolRealArray( 0.00357782, 0.989267 )
 colors = PoolColorArray( 1, 0, 0, 1, 1, 0.948864, 0.181818, 0 )
 
-[node name="Thruster" type="CollisionShape2D"]
+[node name="Thruster" type="CollisionShape2D" groups=[
+"Thruster",
+]]
 z_index = 1
 shape = SubResource( 1 )
 script = ExtResource( 1 )

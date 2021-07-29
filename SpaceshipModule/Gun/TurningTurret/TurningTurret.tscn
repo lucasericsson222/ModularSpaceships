@@ -10,7 +10,9 @@ extents = Vector2( 30, 30 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 30, 30 )
 
-[node name="TurningTurret" type="CollisionShape2D"]
+[node name="TurningTurret" type="CollisionShape2D" groups=[
+"Gun",
+]]
 shape = SubResource( 1 )
 script = ExtResource( 3 )
 

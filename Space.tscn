@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://SpaceshipModule/Core/Core.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SpaceshipModule/EvilCore/EvilSpaceship1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SpaceshipModule/EvilCore/EvilSpaceship2.tscn" type="PackedScene" id=3]
 
 [node name="Space" type="Node2D"]
 
 [node name="Core" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1523.57, 948.278 )
+
+[node name="EvilCore" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4482.39, 2684.98 )
+
+[node name="EvilCore2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1073.43, 3110.49 )
