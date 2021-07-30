@@ -30,7 +30,10 @@ func applyDamage():
 		for m in old_parent.get_children():
 			if m.has_method("markNeighbors"):
 				m.mark = false
-		old_parent.mark = false
+		if old_parent.has_method("markChildren"):
+			old_parent.mark = false
+		else:
+			old_parent.queue_free()
 		queue_free()
 
 
@@ -48,15 +51,16 @@ func _ready():
 
 func floatAway():
 	var myPart = floatingSpaceshipModuleScene.instance()
-	myPart.position = global_position
-	myPart.rotation = global_rotation
+	myPart.global_position = global_position
+	myPart.global_rotation = global_rotation
+	myPart.velocity = get_parent().linear_velocity
 	var root = get_tree().get_root()
+	self.position = Vector2(0,0)
+	self.rotation = 0
 	get_parent().remove_child(self)
 	
 	root.add_child(myPart)
 	myPart.add_child(self)
-	var offset = myPart.global_position-get_parent().global_position
-	myPart.apply_impulse(offset, offset)
 
 
 func selectedColor():

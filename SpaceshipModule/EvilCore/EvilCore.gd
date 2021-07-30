@@ -13,8 +13,8 @@ func _ready():
 	var modules = get_children()
 	for m in modules:
 		if m.has_method("setHealth"):
-			m.setHealth(1.0)
-			m.setTotalHealth(1.0)
+			m.setHealth(2.0)
+			m.setTotalHealth(2.0)
 			m.defaultModulate = Color.mediumorchid
 			m.currentModulate = Color.mediumorchid
 
