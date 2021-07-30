@@ -5,8 +5,38 @@ var thrustersOn = false
 export var impulse_strength = 2 # if need to increase thruster speed
 func _ready():
 	InputMap.add_action("Thruster" + String(get_instance_id()))
-
-
+	if rotation_degrees == 0:
+		var event = InputEventKey.new()
+		event.scancode = KEY_W
+		event.pressed = false
+		InputMap.action_add_event("Thruster" + String(get_instance_id()), event)
+	if rotation_degrees == 90:
+		if position.y >= 0:
+			var event = InputEventKey.new()
+			event.scancode = KEY_A
+			event.pressed = false
+			InputMap.action_add_event("Thruster" + String(get_instance_id()), event)
+		else:
+			var event = InputEventKey.new()
+			event.scancode = KEY_D
+			event.pressed = false
+			InputMap.action_add_event("Thruster" + String(get_instance_id()), event)
+	if rotation_degrees == 270:
+		if position.y >= 0:
+			var event = InputEventKey.new()
+			event.scancode = KEY_D
+			event.pressed = false
+			InputMap.action_add_event("Thruster" + String(get_instance_id()), event)
+		else:
+			var event = InputEventKey.new()
+			event.scancode = KEY_A
+			event.pressed = false
+			InputMap.action_add_event("Thruster" + String(get_instance_id()), event)
+	if rotation_degrees == 180:
+		var event = InputEventKey.new()
+		event.scancode = KEY_S
+		event.pressed = false
+		InputMap.action_add_event("Thruster" + String(get_instance_id()), event)
 func _physics_process(_delta):
 	
 	# fire the thrusters

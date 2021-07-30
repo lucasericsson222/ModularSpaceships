@@ -9,6 +9,10 @@ onready var bulletScene = preload("./Bullet.tscn")
 
 func _ready():
 	InputMap.add_action("Gun" + String(get_instance_id()))
+	var event = InputEventKey.new()
+	event.scancode = KEY_SPACE
+	event.pressed = false
+	InputMap.action_add_event("Gun" + String(get_instance_id()), event)
 
 func _process(_delta):
 	if (Input.is_action_pressed("Gun" + String(get_instance_id()))):

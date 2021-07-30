@@ -24,3 +24,11 @@ func _ready():
 			else: 
 				grid[i].append(0)
 	
+
+func markChildren():
+	mark = true
+	var modules = get_children()
+	for m in modules:
+		if m.has_method("setHealth"):
+			if (m.global_position - global_position).length() <= 61:
+				m.markNeighbors()
