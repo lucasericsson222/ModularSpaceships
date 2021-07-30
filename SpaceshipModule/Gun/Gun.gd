@@ -13,6 +13,7 @@ func _ready():
 	event.scancode = KEY_SPACE
 	event.pressed = false
 	InputMap.action_add_event("Gun" + String(get_instance_id()), event)
+	._ready()
 
 func _process(_delta):
 	if (Input.is_action_pressed("Gun" + String(get_instance_id()))):

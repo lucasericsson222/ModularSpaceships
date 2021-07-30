@@ -2,16 +2,34 @@ extends SpaceshipModule
 
 export var myposition = Vector2(0,0)
 var thrustersOn = false
-export var impulse_strength = 2 # if need to increase thruster speed
+export var impulse_strength = 4 # if need to increase thruster speed
+var hits = 0
 func _ready():
 	InputMap.add_action("Thruster" + String(get_instance_id()))
-	var event = InputEventKey.new()
-	var myscancode = KEY_SPACE
-	if rotation_degrees == 0:
-		myscancode = KEY_W
-	event.scancode = myscancode
-	event.pressed = false
-	InputMap.action_add_event("Thruster" + String(get_instance_id()), event)
+	if !get_parent().is_in_group("Evil"):
+		var event = InputEventKey.new()
+		var myscancode = KEY_SPACE
+		hits += 1
+		
+		if round(transform.x.x) == 1: # up
+			myscancode = KEY_W
+		if round(transform.x.y) == 1: #right
+			if position.y > 0:
+				myscancode = KEY_A
+			else:
+				myscancode = KEY_D
+		if round(transform.x.y) == -1: # left
+			if position.y > 0:
+				myscancode = KEY_D
+			else:
+				myscancode = KEY_A
+		if round(transform.x.x) == -1:
+			myscancode = KEY_S
+			
+		event.scancode = myscancode
+		event.pressed = false
+		InputMap.action_add_event("Thruster" + String(get_instance_id()), event)
+	._ready()
 
 func _physics_process(_delta):
 	

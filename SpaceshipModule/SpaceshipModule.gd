@@ -20,11 +20,17 @@ func applyDamage():
 	health -= 1
 	currentModulate = defaultModulate.darkened((totalHealth-health)/totalHealth)
 	if health <= 0:
-		if get_parent().has_method("markChildren"):
-			get_parent().markChildren()
-		for m in get_parent().get_children():
+		var old_parent = get_parent()
+		get_parent().remove_child(self)
+		if old_parent.has_method("markChildren"):
+			old_parent.markChildren()
+		for m in old_parent.get_children():
 			if m.has_method("destroyIfNotMarked"):
 				m.destroyIfNotMarked()
+		for m in old_parent.get_children():
+			if m.has_method("markNeighbors"):
+				m.mark = false
+		old_parent.mark = false
 		queue_free()
 
 
@@ -59,17 +65,16 @@ func selectedColor():
 	else:
 		$Sprite.modulate = currentModulate
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 func markNeighbors():
 	if mark:
 		return
 	mark = true
-	for m in get_parent().get_children():
+	var modules = get_parent().get_children()
+	for m in modules:
 		if m.has_method("markNeighbors"):
-			if (m.global_position - global_position).length() <= 61:
-				
+			if m.mark: 
+				continue
+			if round(m.global_position.distance_to(global_position)) <= 60:
 				m.markNeighbors()
 
 func destroyIfNotMarked():

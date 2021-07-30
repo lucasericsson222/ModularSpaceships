@@ -5,7 +5,7 @@ extends RigidBody2D
 # var a = 2
 # var b = "text"
 
-var mark
+var mark = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	collision_layer = 0b0000000000000110
@@ -13,8 +13,8 @@ func _ready():
 	var modules = get_children()
 	for m in modules:
 		if m.has_method("setHealth"):
-			m.setHealth(2.0)
-			m.setTotalHealth(2.0)
+			m.setHealth(1.0)
+			m.setTotalHealth(1.0)
 			m.defaultModulate = Color.mediumorchid
 			m.currentModulate = Color.mediumorchid
 
@@ -22,10 +22,9 @@ func markChildren():
 	mark = true
 	var modules = get_children()
 	for m in modules:
-		if m.has_method("setHealth"):
-			if (m.global_position - global_position).length() <= 60:
+		if m.has_method("markNeighbors"):
+			if round(m.global_position.distance_to(global_position)) <= 60:
 				m.markNeighbors()
-
 
 func _process(delta):
 	var modules = get_children()

@@ -30,5 +30,4 @@ func markChildren():
 	var modules = get_children()
 	for m in modules:
 		if m.has_method("setHealth"):
-			if (m.global_position - global_position).length() <= 61:
-				m.markNeighbors()
+			m.mark = false
