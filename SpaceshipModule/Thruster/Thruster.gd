@@ -2,7 +2,7 @@ extends SpaceshipModule
 
 export var myposition = Vector2(0,0)
 var thrustersOn = false
-export var impulse_strength = 4 # if need to increase thruster speed
+export var impulse_strength = 2 # if need to increase thruster speed
 var hits = 0
 func _ready():
 	InputMap.add_action("Thruster" + String(get_instance_id()))

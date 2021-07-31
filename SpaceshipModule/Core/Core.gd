@@ -25,6 +25,13 @@ func _ready():
 				grid[i].append(0)
 	
 
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_focus_next"):
+		for m in get_children():
+			if m.has_method("destroyIfNotMarked"):
+				m.destroyIfNotMarked()
+
 func markChildren():
 	mark = true
 	var modules = get_children()
